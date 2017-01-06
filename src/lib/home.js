@@ -1,4 +1,11 @@
 const homePage = (data) => {
+  console.log(data);
+  if (!data) { return 'no data'; }
+  const htmlData = data.map((x) => {
+    return `<h2>${x.post_title || ''}</h2>
+    <p>${x.post_content || ''}</p>
+    <time>${x.creation_date.toDateString() || ''}</time>`;
+  }).join('');
   return `<!DOCTYPE html>
   <html>
     <head>
@@ -14,22 +21,7 @@ const homePage = (data) => {
         <textarea name="post_content"></textarea>
         <input type="submit" />
       </form>
-    <div>
-      <h2>${data[0].post_title || ''}</h2>
-      <p>${data[0].post_content || ''}</p>
-      <time>${data[0].creation_date.toDateString() || ''}</time>
-    </div>
-    <div>
-      <h2>${data[1].post_title || ''}</h2>
-      <p>${data[1].post_content || ''}</p>
-      <time>${data[1].creation_date.toDateString() || ''}</time>
-    </div>
-    <div>
-      <h2>${data[2].post_title || ''}</h2>
-      <p>${data[2].post_content || ''}</p>
-      <time>${data[2].creation_date.toDateString() || ''}</time>
-    </div>
-
+      ${htmlData}
     </body>
   </html>`;
 };

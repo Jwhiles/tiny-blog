@@ -5,7 +5,6 @@ const homeHandler = (req, rep) => {
   const options = {};
   latestPosts((err, data) => {
     if (err) throw err;
-    console.log(data[0].post_title);
     rep(homeHTML(data));
   }, options);
 };

@@ -8,7 +8,7 @@ module.exports = (cb, options) => {
                 VALUES(
                   $1,
                   $2,
-                  CURRENT_DATE)`,
+                  CURRENT_TIMESTAMP)`,
                   [options.content, options.postTitle], (err, data) => {
                     (err ? cb(err) : cb(null, null));
                   });

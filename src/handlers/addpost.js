@@ -9,8 +9,8 @@ const addPostHandler = (req, rep) => {
   };
   addPostSql((err, data) => {
     if (err) throw err;
+    rep.redirect(`/`);
   }, options);
-  rep.redirect(`/`);
 };
 
 const addPost = {
