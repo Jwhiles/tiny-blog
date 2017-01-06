@@ -1,0 +1,5 @@
+- build simple front end
+- build hapi server
+- build sql queries to
+  - accept new posts, with a content, and username
+  - show previous posts 
