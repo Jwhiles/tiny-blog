@@ -1,4 +1,5 @@
 const addPost = require('./handlers/addpost.js');
+const home = require('./handlers/getposts.js');
 
 const routes = [
   {
@@ -17,7 +18,8 @@ const routes = [
       }
     }
   },
-  addPost
+  addPost,
+  home
 ];
 
 module.exports = routes;
