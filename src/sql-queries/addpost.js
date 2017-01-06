@@ -2,14 +2,14 @@ const dbConn = require('../dbconnection.js');
 
 module.exports = (cb, options) => {
   dbConn.query(`INSERT INTO  posts(
-    post_content,
-    creation_date,
-    user_id)
-    VALUES(
-    $1,
-    CURRENT_DATE,
-    1)`,
-    [options.content], (err, data) => {
-      (err ? cb(err) : cb(null, null));
-    });
+                post_content,
+                post_title,
+                creation_date)
+                VALUES(
+                  $1,
+                  $2,
+                  CURRENT_TIMESTAMP)`,
+                  [options.content, options.postTitle], (err, data) => {
+                    (err ? cb(err) : cb(null, null));
+                  });
 };

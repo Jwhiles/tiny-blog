@@ -1,17 +1,16 @@
 const addPostSql = require('../sql-queries/addpost.js');
 
 const addPostHandler = (req, rep) => {
-  console.log(`got to the handler`);
-  const userName = req.params.username;
+  const postTitle = req.payload.post_title;
   const content = req.payload.post_content;
   const options = {
-    userName: userName,
+    postTitle: postTitle,
     content: content
   };
   addPostSql((err, data) => {
     if (err) throw err;
+    rep.redirect(`/`);
   }, options);
-  rep.redirect(`/`);
 };
 
 const addPost = {
