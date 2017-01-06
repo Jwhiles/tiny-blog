@@ -1,3 +1,5 @@
+const addPost = require('./handlers/addpost.js');
+
 const routes = [
   {
     method: 'GET',
@@ -14,7 +16,8 @@ const routes = [
         path: '.'
       }
     }
-  }
+  },
+  addPost
 ];
 
 module.exports = routes;
